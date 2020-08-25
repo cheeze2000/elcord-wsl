@@ -20,9 +20,11 @@
 ```
 
 ## More Custom Symbols
-Symbols | Description
--- | --
-`elcord-wsl--assets-alist` | The art assets for `elcord-wsl` to load
-`elcord-wsl--client-id` | The client ID of your Discord Application
-`elcord-wsl--details-function` | The function to get the Rich Presence details
-`elcord-wsl--state-function` | The function to get the Rich Presence state
+Symbols | Description | Default
+-- | -- | --
+`elcord-wsl--assets-alist` | The art assets for `elcord-wsl` to load | `(("_default" . "_default"))`
+`elcord-wsl--client-id` | The client ID of your Discord Application | `"698809287564328991"`
+`elcord-wsl--details-function` | The function to get the Rich Presence details | `(concat "Editing " buf)`
+`elcord-wsl--state-function` | The function to get the Rich Presence state | `(concat "Line " (format-mode-line "%l"))`
+---
+`buf` refers to the name of the current buffer.
