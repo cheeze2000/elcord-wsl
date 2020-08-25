@@ -28,3 +28,25 @@ Symbols | Description | Default
 `elcord-wsl--state-function` | The function to get the Rich Presence state | `(concat "Line " (format-mode-line "%l"))`
 ---
 `buf` refers to the name of the current buffer.
+
+## Example
+```elisp
+(use-package elcord-wsl
+  :load-path "/path/to/directory"
+  :custom
+  (elcord-wsl--load-path "/path/to/directory")
+  (elcord-wsl--assets-alist
+    '((".cpp" . "cpp")
+      (".hpp" . "cpp")
+      (".hs" . "haskell")
+      ("*scratch*" . "text")
+      ("_default" . "_default")))
+  (elcord-wsl--client-id "1234567890")
+  :config
+  (defun elcord-wsl--details-function (buf)
+    (concat "I am editing " buf "!"))
+  (defun elcord-wsl--state-function (buf)
+    '"I am totally not procrastinating."))
+```
+---
+The asset used will be the first key in `elcord-wsl--assets-alist` that the buffer name ends with. If you are editing `main.cpp`, the buffer name ends with `.cpp` and the `cpp` asset in the Discord application will be used. Similarly, if you are editing `*scratch*`, the asset used will be `text` because `*scratch*` ends with `*scratch*`.
