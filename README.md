@@ -19,6 +19,15 @@
   (elcord-wsl--node-path "/mnt/c/Program Files/nodejs/node.exe")) ;; customise the path
 ```
 
+## Interactive Functions
+Functions | Description
+-- | --
+`M-x elcord-wsl--connect` | Starts the process
+`M-x elcord-wsl--disconnect` | Deletes the process
+---
+`elcord-wsl--connect` might take very long to start, do not use this on startup. \
+`elcord-wsl--disconnect` will always be called when killing Emacs, it is added in `kill-emacs-hook`.
+
 ## More Custom Symbols
 Symbols | Description | Default
 -- | -- | --
