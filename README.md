@@ -50,3 +50,7 @@ Symbols | Description | Default
 ```
 ---
 The asset used will be the first key in `elcord-wsl--assets-alist` that the buffer name ends with. If you are editing `main.cpp`, the buffer name ends with `.cpp` and the `cpp` asset in the Discord application will be used. Similarly, if you are editing `*scratch*`, the asset used will be `text` because `*scratch*` ends with `*scratch*`. The asset with the key `_default` will be used if the buffer name does not end with any key in the alist.
+
+## Default Client ID and Art Assets
+#### Assets of the default client `(698809287564328991)`
+![art-assets](https://cdn.discordapp.com/attachments/437471715975757834/747822327869210644/unknown.png)
