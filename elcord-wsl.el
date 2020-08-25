@@ -25,8 +25,7 @@
 
 (defun elcord-wsl--state-function (buf)
   "Provides the string for the Rich Presence state."
-  (setq ln (format-mode-line "%l"))
-  (concat "Line " ln))
+  (concat "Line " (format-mode-line "%l")))
 
 (defun elcord-wsl--connect ()
   (interactive)
