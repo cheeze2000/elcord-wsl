@@ -49,7 +49,7 @@
       (setq elcord-wsl--timer nil)
       (let ((inhibit-message t)
             (message-log-max nil))
-        (shell-command "pm2 stop elcord-wsl")))))
+        (shell-command "pm2 delete elcord-wsl")))))
 
 (defun elcord-wsl--update-activity ()
   (setq buf (buffer-name))
