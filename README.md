@@ -62,4 +62,4 @@ The asset used will be the first key in `elcord-wsl--assets-alist` that the buff
 
 ## Default Client ID and Art Assets
 #### Assets of the default client `(698809287564328991)`
-![art-assets](https://cdn.discordapp.com/attachments/437471715975757834/747822327869210644/unknown.png)
+![art-assets](https://cdn.discordapp.com/attachments/437471715975757834/748217374901272636/unknown.png)
