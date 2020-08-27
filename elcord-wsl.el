@@ -1,4 +1,4 @@
-;;; elcord-wsl.el -- Discord RPC for Emacs on WSL
+;;; elcord-wsl.el --- Discord RPC for Emacs on WSL
 
 ;;; Commentary:
 ;;; Code:
