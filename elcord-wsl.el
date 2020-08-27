@@ -23,6 +23,10 @@
   "Provides the string for the Rich Presence details."
   (concat "Editing " buf))
 
+(defun elcord-wsl--large-image-text-function (buf)
+  "Provides the text shown when hovering over the large image."
+  (concat "Emacs " emacs-version))
+
 (defun elcord-wsl--state-function (buf)
   "Provides the string for the Rich Presence state."
   (concat "Line " (format-mode-line "%l")))
@@ -64,6 +68,8 @@
     "details" (elcord-wsl--details-function buf)))
   (setq obj (json-add-to-object obj
     "state" (elcord-wsl--state-function buf)))
+  (setq obj (json-add-to-object obj
+    "largeImageText" (elcord-wsl--large-image-text-function buf)))
   (with-temp-file (concat elcord-wsl--load-path "/config.json")
     (insert (json-encode obj))))
 
