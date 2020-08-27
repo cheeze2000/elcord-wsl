@@ -35,6 +35,7 @@ Symbols | Description | Default
 `elcord-wsl--client-id` | The client ID of your Discord Application | `"698809287564328991"`
 `elcord-wsl--details-function` | The function to get the Rich Presence details | `(concat "Editing " buf)`
 `elcord-wsl--state-function` | The function to get the Rich Presence state | `(concat "Line " (format-mode-line "%l"))`
+`elcord-wsl--large-image-text-function` | The function to get the Rich Presence large image text | `(concat "Emacs " emacs-version)`
 ---
 `buf` refers to the name of the current buffer.
 
