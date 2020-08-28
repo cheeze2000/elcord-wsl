@@ -60,7 +60,6 @@
 (defun elcord-wsl--update-activity ()
   (setq buf (replace-regexp-in-string
     "<[^>]+>$" "" (buffer-name)))
-  (message buf)
   (setq obj (json-new-object))
   (setq obj (json-add-to-object obj
     "assets" elcord-wsl--assets-alist))
