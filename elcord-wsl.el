@@ -20,18 +20,19 @@
   "A timer object that updates the activity every 15s.")
 
 (defun elcord-wsl--details-function (buf)
-  "Provides the string for the Rich Presence details."
+  "Provide the string for the Rich Presence details."
   (concat "Editing " buf))
 
 (defun elcord-wsl--large-image-text-function (buf)
-  "Provides the text shown when hovering over the large image."
+  "Provide the text shown when hovering over the large image."
   (concat "Emacs " emacs-version))
 
 (defun elcord-wsl--state-function (buf)
-  "Provides the string for the Rich Presence state."
+  "Provide the string for the Rich Presence state."
   (concat "Line " (format-mode-line "%l")))
 
 (defun elcord-wsl--connect ()
+  "Run the PM2 process."
   (interactive)
   (if (not elcord-wsl--timer)
     (progn
@@ -46,6 +47,7 @@
             "--name elcord-wsl"))))))
 
 (defun elcord-wsl--disconnect ()
+  "Delete the PM2 process."
   (interactive)
   (if elcord-wsl--timer
     (progn
