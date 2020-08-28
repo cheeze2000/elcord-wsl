@@ -58,12 +58,14 @@
         (shell-command "pm2 delete elcord-wsl")))))
 
 (defun elcord-wsl--update-activity ()
-  (setq buf (buffer-name))
+  (setq buf (replace-regexp-in-string
+    "<[^>]+>$" "" (buffer-name)))
+  (message buf)
   (setq obj (json-new-object))
   (setq obj (json-add-to-object obj
     "assets" elcord-wsl--assets-alist))
   (setq obj (json-add-to-object obj
-    "buffer" (buffer-name)))
+    "buffer" buf))
   (setq obj (json-add-to-object obj
     "clientId" elcord-wsl--client-id))
   (setq obj (json-add-to-object obj
