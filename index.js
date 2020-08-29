@@ -15,7 +15,10 @@ function readConfig() {
 
 function updateActivity(client) {
   const { buffer, details, state, largeImageText } = readConfig();
-  const e = extensions.find(x => buffer.endsWith(x));
+  const e = extensions.find(x => {
+    const r = new RegExp(x);
+    return r.test(buffer);
+  });
   const largeImageKey = assets[e] || assets["_default"];
   client.setActivity({ details, state, startTimestamp, largeImageKey, largeImageText });
 }
