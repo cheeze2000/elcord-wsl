@@ -46,11 +46,11 @@ Symbols | Description | Default
   :custom
   (elcord-wsl--load-path "/path/to/directory")
   (elcord-wsl--assets-alist
-    '((".cpp" . "cpp")
-      (".hpp" . "cpp")
-      (".hs" . "haskell")
-      ("*scratch*" . "emacs")
-      ("_default" . "emacs")))
+    '(("\\.cpp$" . "cpp")
+      ("\\.hpp$" . "cpp")
+      ("\\.hs$" . "haskell")
+      ("scratch" . "emacs")
+      ("^_default" . "emacs")))
   (elcord-wsl--client-id "1234567890")
   :config
   (defun elcord-wsl--details-function (buf)
@@ -59,7 +59,7 @@ Symbols | Description | Default
     '"I am totally not procrastinating."))
 ```
 ---
-The asset used will be the first key in `elcord-wsl--assets-alist` that the buffer name ends with. If you are editing `main.cpp`, the buffer name ends with `.cpp` and the `cpp` asset in the Discord application will be used. Similarly, if you are editing `*scratch*`, the asset used will be `emacs` because `*scratch*` ends with `*scratch*`. The asset with the key `_default` will be used if the buffer name does not end with any key in the alist.
+The keys in the alist will be [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) objects. The asset used will be the first key which the buffer name matches the respective `RegExp` object.
 
 ## Default Client ID and Art Assets
 #### Assets of the default client `(698809287564328991)`
