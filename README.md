@@ -47,7 +47,7 @@ Symbols | Description | Default
   :custom
   (elcord-wsl--load-path "/path/to/directory")
   (elcord-wsl--ignored-buffers
-    '("Treemacs"))
+    '("Treemacs" "Minibuf"))
   (elcord-wsl--assets-alist
     '(("\\.cpp$" . "cpp")
       ("\\.hpp$" . "cpp")
