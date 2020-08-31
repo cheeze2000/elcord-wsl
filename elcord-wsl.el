@@ -10,6 +10,9 @@
 (defvar elcord-wsl--client-id "698809287564328991"
   "The client ID of the application for Rich Presence.")
 
+(defvar elcord-wsl--ignored-buffers '("Minibuf")
+  "The buffers that will not be displayed in the Rich Presence.")
+
 (defvar elcord-wsl--load-path nil
   "The path where elcord-wsl files are located.")
 
@@ -63,6 +66,8 @@
   (setq obj (json-new-object))
   (setq obj (json-add-to-object obj
     "assets" elcord-wsl--assets-alist))
+  (setq obj (json-add-to-object obj
+    "ignored" elcord-wsl--ignored-buffers))
   (setq obj (json-add-to-object obj
     "buffer" buf))
   (setq obj (json-add-to-object obj

@@ -14,7 +14,13 @@ function readConfig() {
 }
 
 function updateActivity(client) {
-  const { buffer, details, state, largeImageText } = readConfig();
+  const { ignored, buffer, details, state, largeImageText } = readConfig();
+  const i = ignored.some(x => {
+    const r = new RegExp(x);
+    return r.test(buffer);
+  });
+
+  if (i) return;
   const e = extensions.find(x => {
     const r = new RegExp(x);
     return r.test(buffer);
