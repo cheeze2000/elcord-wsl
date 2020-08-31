@@ -33,6 +33,7 @@ Symbols | Description | Default
 -- | -- | --
 `elcord-wsl--assets-alist` | The art assets for `elcord-wsl` to load | `(("_default" . "_default"))`
 `elcord-wsl--client-id` | The client ID of your Discord Application | `"698809287564328991"`
+`elcord-wsl--ignored-buffers` | The buffers that will not be displayed | `("Minibuf")`
 `elcord-wsl--details-function` | The function to get the Rich Presence details | `(concat "Editing " buf)`
 `elcord-wsl--state-function` | The function to get the Rich Presence state | `(concat "Line " (format-mode-line "%l"))`
 `elcord-wsl--large-image-text-function` | The function to get the Rich Presence large image text | `(concat "Emacs " emacs-version)`
@@ -45,6 +46,8 @@ Symbols | Description | Default
   :load-path "/path/to/directory"
   :custom
   (elcord-wsl--load-path "/path/to/directory")
+  (elcord-wsl--ignored-buffers
+    '("Treemacs"))
   (elcord-wsl--assets-alist
     '(("\\.cpp$" . "cpp")
       ("\\.hpp$" . "cpp")
@@ -60,6 +63,8 @@ Symbols | Description | Default
 ```
 ---
 The keys in the alist will be [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) objects. The asset used will be the first key which the buffer name matches the respective `RegExp` object.
+
+The elements in the ignored buffers list will also be `RegExp` objects. If the buffer name matches any `RegExp` object in the list, it will be not be displayed in the Rich Presence.
 
 ## Default Client ID and Art Assets
 #### Assets of the default client `(698809287564328991)`
